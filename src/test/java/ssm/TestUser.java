@@ -1,14 +1,11 @@
 package ssm;
 
+import org.junit.Before;
 import org.junit.Test;
-
 import com.google.gson.Gson;
-
 import me.pwcong.ssm.entity.User;
 import me.pwcong.ssm.utils.DigestCoder;
-import me.pwcong.ssm.utils.HttpClientUtil;
-
-
+import me.pwcong.ssm.utils.HttpClientUtils;
 
 public class TestUser {
 
@@ -17,31 +14,27 @@ public class TestUser {
 		gson=new Gson();
 	}
 
-	//@Test
-	public void Test01(){
+	@Before
+	public void testRegister(){
 
 		User user=new User();
-		user.setUserId("test0001");
-		user.setPassword(DigestCoder.MD5Encode("123456"));
+		user.setUid("pwcong");
+		user.setPwd(DigestCoder.MD5Encode("123456"));
 
-		String postJsonEntity = HttpClientUtil.postJsonEntity("http://localhost:8080/simplechat/user/register.action", user);
+		String postJsonEntity = HttpClientUtils.postJsonEntity("http://localhost:8080/user/register.action", user);
 		System.out.println(postJsonEntity);
-
-
-
 
 	}
 
 
 
 	@Test
-	public void Test03(){
-
+	public void TestLogin(){
 
 		User user=new User();
-		user.setUserId("test0001");
-		user.setPassword(DigestCoder.MD5Encode("123456"));
-		String postJsonEntity = HttpClientUtil.postJsonEntity("http://localhost:8080/QuickSpringMVC/user/login.action", user);
+		user.setUid("pwcong");
+		user.setPwd(DigestCoder.MD5Encode("123456"));
+		String postJsonEntity = HttpClientUtils.postJsonEntity("http://localhost:8080/user/login.action", user);
 		System.out.println(postJsonEntity);
 
 	}

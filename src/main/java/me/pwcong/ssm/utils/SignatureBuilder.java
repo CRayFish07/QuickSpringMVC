@@ -2,17 +2,19 @@ package me.pwcong.ssm.utils;
 
 import me.pwcong.ssm.conf.Constants;
 
-public abstract class SignatureBuilder {
+public class SignatureBuilder {
+
+	private SignatureBuilder(){}
 	
 	
 	public static Signature build(){
 		
 		String nonce=String.valueOf(Math.round(Math.random()*100000));
 		String appSecret=new String(Constants.APP_SECRET);
-		String timestamp=String.valueOf(DateUtil.time().getTime());
+		String timestamp=String.valueOf(DateUtils.time().getTime());
 		try {
 			
-			String signature=EncodeUtil.byte2HexStr(DigestCoder.SHAEncode((appSecret+nonce+timestamp).getBytes()));
+			String signature= EncodeUtils.byte2HexStr(DigestCoder.SHAEncode((appSecret+nonce+timestamp).getBytes()));
 			
 			return new Signature(nonce, timestamp, signature);
 			

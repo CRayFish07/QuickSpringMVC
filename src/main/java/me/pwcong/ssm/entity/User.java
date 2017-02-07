@@ -2,79 +2,72 @@ package me.pwcong.ssm.entity;
 
 import java.util.Date;
 
-import me.pwcong.ssm.base.BaseEntity;
-
 public class User extends BaseEntity{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6080675575017033915L;
+	private Integer id;
+	private String uid;
+	private String pwd;
+	private Date createdAt;
+	private Date updatedAt;
 
-	String token;
-	String userId;
-	String password;
-	String portraitUri;
-	Date createdAt;
-	Date updatedAt;
-	public String getToken() {
-		return token;
+	public User(Integer id, String uid, String pwd, Date createdAt, Date updatedAt) {
+		this.id = id;
+		this.uid = uid;
+		this.pwd = pwd;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
-	public void setToken(String token) {
-		this.token = token;
+
+	public User(){}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", uid='" + uid + '\'' +
+				", pwd='" + pwd + '\'' +
+				", createdAt=" + createdAt +
+				", updatedAt=" + updatedAt +
+				'}';
 	}
-	public String getUserId() {
-		return userId;
+
+	public Integer getId() {
+		return id;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getUid() {
+		return uid;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
-	public String getPortraitUri() {
-		return portraitUri;
+
+	public String getPwd() {
+		return pwd;
 	}
-	public void setPortraitUri(String portraitUri) {
-		this.portraitUri = portraitUri;
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
+
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
+
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public User(String token, String userId, String password, String portraitUri, Date createdAt, Date updatedAt) {
-		super();
-		this.token = token;
-		this.userId = userId;
-		this.password = password;
-		this.portraitUri = portraitUri;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	}
-	
-	public User() {
-	}
-	@Override
-	public String toString() {
-		return "User [token=" + token + ", userId=" + userId + ", password=" + password + ", portraitUri=" + portraitUri
-				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
-	}
-	
-	
-	
-	
-	
-	
-	
 }

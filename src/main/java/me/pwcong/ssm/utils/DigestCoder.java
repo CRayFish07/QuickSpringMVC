@@ -3,7 +3,9 @@ package me.pwcong.ssm.utils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public abstract class DigestCoder {
+public class DigestCoder {
+
+	private DigestCoder(){}
 
 	/**
 	 * MD5加密
